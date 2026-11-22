@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLIMO Gallery</title>
+<meta name="description" content="Screens from CLIMO, an all-India weather and flood-risk GIS for web and Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#020817; --bg-1:#06122b; --bg-2:#0d2346;
+    --ink:#eaf6ff; --muted:#9fb8d6; --faint:#6f86a6;
+    --teal:#2fe3c4; --sky:#2fa8ff; --amber:#FFB648;
+    --card:rgba(255,255,255,.035); --line:rgba(47,168,255,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+    color:var(--ink);
+    background:radial-gradient(1200px 700px at 70% -10%, var(--bg-2), transparent 70%), linear-gradient(180deg,var(--bg-1),var(--bg-0));
+    background-color:var(--bg-0);
+    min-height:100vh; overflow-x:hidden;
+  }
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#9cc8ff;animation:tw 3.4s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.12}50%{opacity:.75}}
+  main{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:56px 16px 80px}
+  header{text-align:center;margin-bottom:34px}
+  .badge{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;
+    border:1px solid rgba(47,227,196,.3);box-shadow:0 0 44px rgba(47,168,255,.35), inset 0 0 26px rgba(47,168,255,.12);
+    animation:float 4s ease-in-out infinite}
+  @keyframes float{50%{transform:translateY(-7px)}}
+  h1{font-size:clamp(38px,7vw,64px);letter-spacing:.14em;font-weight:700;
+    background:linear-gradient(90deg,#fff,var(--teal) 60%,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tag{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .lede{max-width:640px;margin:18px auto 0;color:var(--muted);line-height:1.6;font-size:16px}
+  .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:30px 0 26px}
+  .filters button{font:inherit;font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    padding:9px 16px;border-radius:999px;cursor:pointer;transition:.2s}
+  .filters button:hover{color:var(--ink);border-color:rgba(47,227,196,.5)}
+  .filters button[aria-pressed="true"]{color:#03221d;background:linear-gradient(90deg,var(--teal),var(--sky));border-color:transparent;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+  .card{position:relative;border-radius:18px;overflow:hidden;background:var(--card);border:1px solid var(--line);cursor:zoom-in;
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .25s, box-shadow .35s;transform-style:preserve-3d}
+  .card:hover{border-color:rgba(47,227,196,.55);box-shadow:0 20px 50px -20px rgba(47,168,255,.55)}
+  .card:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+  .card .img{aspect-ratio:16/10;overflow:hidden;background:#0a1830}
+  .card.tall .img{aspect-ratio:9/16}
+  .card img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s}
+  .card:hover img{transform:scale(1.04)}
+  .meta{padding:14px 16px 16px}
+  .num{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;color:var(--teal)}
+  .meta h2{font-size:17px;font-weight:600;margin:4px 0 6px}
+  .meta p{font-size:13.5px;line-height:1.5;color:var(--muted)}
+  .chip{position:absolute;top:12px;left:12px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    padding:5px 9px;border-radius:999px;background:rgba(2,8,23,.72);border:1px solid var(--line);color:var(--muted);backdrop-filter:blur(6px)}
+  .mobile-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+  .hidden{display:none!important}
+  .feature{margin:0 0 22px;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--card);display:grid;grid-template-columns:1.25fr 1fr}
+  .feature img{width:100%;display:block}
+  .feature .txt{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .feature h2{font-size:24px}
+  .feature p{color:var(--muted);line-height:1.6}
+  @media(max-width:760px){.feature{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+  dialog{border:none;padding:0;background:transparent;max-width:min(96vw,1500px);width:100%;color:var(--ink)}
+  dialog::backdrop{background:rgba(2,8,23,.9);backdrop-filter:blur(6px)}
+  .lb{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .lb img{max-width:100%;max-height:80vh;border-radius:14px;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb .cap{text-align:center;max-width:820px;color:var(--muted);font-size:14.5px;line-height:1.55;padding:0 16px}
+  .lb .cap b{color:var(--ink)}
+  .lb button{position:fixed;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;font-size:20px;cursor:pointer;
+    background:rgba(6,18,43,.85);color:var(--ink);border:1px solid var(--line)}
+  .lb button:hover{border-color:var(--teal)}
+  .lb .prev{left:16px}.lb .next{right:16px}
+  .lb .close{top:28px;transform:none;right:16px}
+  footer{text-align:center;margin-top:46px;color:var(--faint);font-size:13px;line-height:1.7}
+  footer a{color:var(--teal)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+<main>
+  <header>
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="58" height="58"><circle cx="20" cy="12" r="5.5" fill="#FFD54F"/><ellipse cx="17" cy="15" rx="3.5" ry="2.5" fill="#E3F2FD"/><ellipse cx="22" cy="14" rx="3.8" ry="2.8" fill="#E3F2FD"/><ellipse cx="19.5" cy="16.5" rx="4.5" ry="2" fill="#E3F2FD"/><path d="M8 24 Q12 18 16 22 Q20 17 24 21 Q28 19 32 24 L32 26 Q28 28 24 26 Q20 28 16 26 Q12 28 8 26 Z" fill="#66BB6A"/><path d="M8 26 Q12 24 16 26 Q20 24 24 26 Q28 24 32 26 L32 34 Q20 40 8 34 Z" fill="#2196F3"/></svg>
+    </div>
+    <h1>CLIMO</h1>
+    <div class="tag">Gallery · Know the sky, Own the day</div>
+    <p class="lede">A live weather and flood-risk observatory for all of India, on the web and on Android. Click any screen to open it full size, and use ← → to move between screens.</p>
+  </header>
+
+  <section class="feature" aria-label="Climate time-lapse">
+    <img src="../assets/climate-timelapse.webp" alt="Temperature heatmap over India stepping from 2000 to 2030">
+    <div class="txt">
+      <div class="num">✨ TIME-LAPSE</div>
+      <h2>2000 → 2030, year by year</h2>
+      <p>The India Climate Pulse dataset (90 stations × 31 years) shown as a heatmap. From 2026 onward, the values come from the LSTM forecast.</p>
+    </div>
+  </section>
+
+  <nav class="filters" aria-label="Filter screens">
+    <button data-f="all" aria-pressed="true">All</button>
+    <button data-f="intro" aria-pressed="false">First impressions</button>
+    <button data-f="map" aria-pressed="false">GIS layers</button>
+    <button data-f="tools" aria-pressed="false">Decision tools</button>
+    <button data-f="mobile" aria-pressed="false">Mobile</button>
+  </nav>
+
+  <section class="grid" id="grid"></section>
+  <h2 class="num" id="mobileHead" style="margin:34px 0 14px;font-size:13px">📱 MOBILE</h2>
+  <section class="mobile-row" id="mobileGrid"></section>
+
+  <footer>
+    Screens of the real app, with sample weather data (see <a href="../GALLERY.md#how-these-screenshots-were-made">how they were made</a>).<br>
+    <a href="../../README.md">← Back to README</a>
+  </footer>
+</main>
+
+<dialog id="lb" aria-label="Screenshot viewer">
+  <div class="lb">
+    <button class="close" id="lbClose" aria-label="Close">✕</button>
+    <button class="prev" id="lbPrev" aria-label="Previous">←</button>
+    <img id="lbImg" alt="">
+    <div class="cap" id="lbCap"></div>
+    <button class="next" id="lbNext" aria-label="Next">→</button>
+  </div>
+</dialog>
+
+<script>
+const SHOTS = [
+  ['01-splash','intro','Splash','A starfield, the animated brand logo and the tagline. Moves on after 2.6 s, or tap to skip.'],
+  ['02-landing-hero','intro','Landing hero','A parallax 3D India with live city pins, orbit rings, a glowing sun and wind streams.'],
+  ['03-landing-features','intro','What we track','Temperature, rainfall, humidity, wind, heat maps, buffer zones and alerts.'],
+  ['04-dashboard-stations','map','Observatory dashboard','90 clustered stations with sensor-type icons, plus the Top Alerts list ranked by live risk.'],
+  ['05-station-drawer','map','Station drawer','Now + 24 h, a 7-day forecast, metrics, flood-risk bar, nearest station and local feedback.'],
+  ['06-live-temperature-heatmap','map','Live heatmap','A Leaflet.heat surface built from each station’s current temperature.'],
+  ['07-climate-2030-forecast','map','Climate year 2030','The Weather Time Explorer playing the 2000 → 2030 annual heatmap.'],
+  ['08-state-rainfall-choropleth','map','State choropleth','Live 24 h rainfall for each state, with an animated rain atmosphere.'],
+  ['09-buffer-analysis','tools','Buffer analysis','5/10/15/20 km rings around any place, with live risk and station overlap.'],
+  ['10-weather-safe-route','tools','Weather-safe route','The shortest route through storm cells (red) compared with a detour around them (teal).'],
+  ['11-ai-copilot','tools','CLIMO Copilot','On-device chat that understands places, “near me” and “tomorrow”. No API key needed.'],
+  ['12-alert-notifications','tools','Alert notifications','Threshold alerts: in-app banner, native notification and SMS (simulated).'],
+  ['13-multilingual-hindi','tools','16 languages','The whole interface switches language at once. Shown here in Hindi.'],
+  ['14-mobile-landing','mobile','Mobile landing','The hero reflows into a single column.'],
+  ['15-mobile-map','mobile','Mobile map','Full-width search, a docked time explorer and a floating Copilot.'],
+  ['16-mobile-layers','mobile','Mobile layers','The ☰ drawer holds every map layer.'],
+];
+const grid = document.getElementById('grid'), mgrid = document.getElementById('mobileGrid');
+const cards = [];
+SHOTS.forEach(([f,cat,title,desc], i) => {
+  const el = document.createElement('article');
+  el.className = 'card' + (cat === 'mobile' ? ' tall' : '');
+  el.dataset.cat = cat; el.tabIndex = 0; el.setAttribute('role','button');
+  el.setAttribute('aria-label', `Open ${title}`);
+  el.innerHTML = `<div class="img"><img loading="lazy" src="${f}.webp" alt="${title}"></div>
+    <span class="chip">${cat.toUpperCase()}</span>
+    <div class="meta"><div class="num">${String(i+1).padStart(2,'0')}</div><h2>${title}</h2><p>${desc}</p></div>`;
+  el.addEventListener('click', () => open(i));
+  el.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(i); } });
+  if(!matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect(), x = (e.clientX-r.left)/r.width-.5, y = (e.clientY-r.top)/r.height-.5;
+      el.style.transform = `translateY(-4px) rotateX(${-y*5}deg) rotateY(${x*5}deg)`;
+    });
+    el.addEventListener('mouseleave', () => el.style.transform = '');
+  }
+  cards.push(el);
+  (cat === 'mobile' ? mgrid : grid).appendChild(el);
+});
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+let cur = 0;
+function visible(){ return cards.map((c,i) => c.classList.contains('hidden') ? -1 : i).filter(i => i >= 0); }
+function show(i){ cur = i; const [f,,t,d] = SHOTS[i]; lbImg.src = f + '.webp'; lbImg.alt = t; lbCap.innerHTML = `<b>${String(i+1).padStart(2,'0')} · ${t}</b> ${d}`; }
+function open(i){ show(i); if(!lb.open) lb.showModal(); }
+function step(d){ const v = visible(); const k = v.indexOf(cur); show(v[(k + d + v.length) % v.length]); }
+document.getElementById('lbPrev').onclick = () => step(-1);
+document.getElementById('lbNext').onclick = () => step(1);
+document.getElementById('lbClose').onclick = () => lb.close();
+lb.addEventListener('click', e => { if(e.target === lb) lb.close(); });
+document.addEventListener('keydown', e => { if(!lb.open) return; if(e.key === 'ArrowLeft') step(-1); if(e.key === 'ArrowRight') step(1); });
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  const f = b.dataset.f;
+  document.querySelectorAll('.card').forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.cat !== f));
+  document.getElementById('mobileHead').classList.toggle('hidden', f !== 'all' && f !== 'mobile');
+});
+const stars = document.getElementById('stars');
+for(let i=0;i<60;i++){ const s=document.createElement('i'); s.style.left=Math.random()*100+'%'; s.style.top=Math.random()*100+'%'; s.style.animationDelay=Math.random()*3+'s'; stars.appendChild(s); }
+</script>
+</body>
+</html>
