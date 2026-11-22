@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 330" width="1200" height="330" role="img" aria-labelledby="ct cd">
+<title id="ct">India Climate Pulse — 90-station national means, 2000–2030</title>
+<desc id="cd">Mean temperature rises from 29.94 °C in 2000 to 30.43 °C in 2025 and is forecast at 30.38 °C in 2030. Mean heat-stress index rises from 34.80 °C to 35.91 °C, forecast 35.72 °C in 2030.</desc>
+<style>text{font-family:'Space Grotesk','Segoe UI',Inter,system-ui,sans-serif}</style>
+<rect width="1200" height="330" rx="18" fill="#06122b"/>
+<text x="40" y="30" font-size="12" letter-spacing="2.5" fill="#8fa6c4">INDIA CLIMATE PULSE · MEAN OF 90 STATIONS · DASHED = LSTM FORECAST</text>
+<text x="40" y="60" font-size="17" font-weight="600" fill="#eaf6ff">Mean temperature</text>
+<line x1="90" x2="550" y1="288.0" y2="288.0" stroke="#1b2c4d"/>
+<text x="82" y="292.0" font-size="12" fill="#8fa6c4" text-anchor="end">29.8</text>
+<line x1="90" x2="550" y1="238.0" y2="238.0" stroke="#1b2c4d"/>
+<text x="82" y="242.0" font-size="12" fill="#8fa6c4" text-anchor="end">30.0</text>
+<line x1="90" x2="550" y1="188.0" y2="188.0" stroke="#1b2c4d"/>
+<text x="82" y="192.0" font-size="12" fill="#8fa6c4" text-anchor="end">30.2</text>
+<line x1="90" x2="550" y1="138.0" y2="138.0" stroke="#1b2c4d"/>
+<text x="82" y="142.0" font-size="12" fill="#8fa6c4" text-anchor="end">30.4</text>
+<line x1="90" x2="550" y1="88.0" y2="88.0" stroke="#1b2c4d"/>
+<text x="82" y="92.0" font-size="12" fill="#8fa6c4" text-anchor="end">30.6</text>
+<text x="90.0" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2000</text>
+<text x="243.3" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2010</text>
+<text x="396.7" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2020</text>
+<text x="550.0" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2030</text>
+<rect x="481.0" y="88" width="69.0" height="200" fill="#16a68d" fill-opacity=".07"/>
+<line x1="481.0" x2="481.0" y1="82" y2="288" stroke="#8fa6c4" stroke-dasharray="3 3"/>
+<text x="475.0" y="280" font-size="11" fill="#8fa6c4" text-anchor="end">OBSERVED</text>
+<text x="487.0" y="280" font-size="11" fill="#8fa6c4">LSTM</text>
+<polyline points="90.0,253.8 105.3,242.7 120.7,255.2 136.0,226.1 151.3,239.4 166.7,215.5 182.0,238.8 197.3,199.1 212.7,212.2 228.0,210.2 243.3,215.8 258.7,198.8 274.0,193.6 289.3,194.7 304.7,193.3 320.0,203.0 335.3,179.1 350.7,180.5 366.0,167.4 381.3,184.9 396.7,168.8 412.0,159.9 427.3,185.5 442.7,145.5 458.0,126.3 473.3,130.5" fill="none" stroke="#16a68d" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="473.3,130.5 488.7,153.3 504.0,150.2 519.3,144.0 534.7,143.6 550.0,144.0" fill="none" stroke="#16a68d" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="90.0" cy="253.8" r="4" fill="#16a68d" stroke="#06122b" stroke-width="2"/>
+<text x="94.0" y="233.8" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="start">29.94°</text>
+<circle cx="473.3" cy="130.5" r="4" fill="#16a68d" stroke="#06122b" stroke-width="2"/>
+<text x="465.3" y="118.5" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="end">30.43°</text>
+<text x="550.0" y="166.0" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="end">30.38°</text>
+<text x="640" y="60" font-size="17" font-weight="600" fill="#eaf6ff">Mean heat-stress index</text>
+<line x1="690" x2="1150" y1="288.0" y2="288.0" stroke="#1b2c4d"/>
+<text x="682" y="292.0" font-size="12" fill="#8fa6c4" text-anchor="end">34.6</text>
+<line x1="690" x2="1150" y1="238.0" y2="238.0" stroke="#1b2c4d"/>
+<text x="682" y="242.0" font-size="12" fill="#8fa6c4" text-anchor="end">35.0</text>
+<line x1="690" x2="1150" y1="188.0" y2="188.0" stroke="#1b2c4d"/>
+<text x="682" y="192.0" font-size="12" fill="#8fa6c4" text-anchor="end">35.4</text>
+<line x1="690" x2="1150" y1="138.0" y2="138.0" stroke="#1b2c4d"/>
+<text x="682" y="142.0" font-size="12" fill="#8fa6c4" text-anchor="end">35.8</text>
+<line x1="690" x2="1150" y1="88.0" y2="88.0" stroke="#1b2c4d"/>
+<text x="682" y="92.0" font-size="12" fill="#8fa6c4" text-anchor="end">36.2</text>
+<text x="690.0" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2000</text>
+<text x="843.3" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2010</text>
+<text x="996.7" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2020</text>
+<text x="1150.0" y="310" font-size="12" fill="#8fa6c4" text-anchor="middle">2030</text>
+<rect x="1081.0" y="88" width="69.0" height="200" fill="#c97a18" fill-opacity=".07"/>
+<line x1="1081.0" x2="1081.0" y1="82" y2="288" stroke="#8fa6c4" stroke-dasharray="3 3"/>
+<text x="1075.0" y="280" font-size="11" fill="#8fa6c4" text-anchor="end">OBSERVED</text>
+<text x="1087.0" y="280" font-size="11" fill="#8fa6c4">LSTM</text>
+<polyline points="690.0,262.8 705.3,239.7 720.7,253.1 736.0,208.3 751.3,232.5 766.7,198.6 782.0,227.1 797.3,204.5 812.7,207.7 828.0,214.5 843.3,212.3 858.7,177.6 874.0,170.6 889.3,196.6 904.7,195.3 920.0,203.5 935.3,171.4 950.7,180.6 966.0,152.4 981.3,174.1 996.7,164.9 1012.0,141.7 1027.3,185.0 1042.7,127.2 1058.0,137.4 1073.3,124.0" fill="none" stroke="#c97a18" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1073.3,124.0 1088.7,154.8 1104.0,153.7 1119.3,146.7 1134.7,148.6 1150.0,147.8" fill="none" stroke="#c97a18" stroke-width="2" stroke-dasharray="5 4"/>
+<circle cx="690.0" cy="262.8" r="4" fill="#c97a18" stroke="#06122b" stroke-width="2"/>
+<text x="694.0" y="242.8" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="start">34.80°</text>
+<circle cx="1073.3" cy="124.0" r="4" fill="#c97a18" stroke="#06122b" stroke-width="2"/>
+<text x="1065.3" y="112.0" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="end">35.91°</text>
+<text x="1150.0" y="169.8" font-size="12.5" font-weight="600" fill="#eaf6ff" text-anchor="end">35.72°</text>
+</svg>
